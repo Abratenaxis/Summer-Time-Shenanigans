@@ -23,11 +23,13 @@ tree_clf = tree_clf.fit(X, Y)
 prediciton1 = tree_clf.predict(challenger)
 print (prediciton1)
 
-#
+#SVM(support vector machine) needs to be preprocessed which is why we make a pipeline to scale down the data and apply
+#the Support Vector Classification then fit it to our data to predict 'challenger' 
 svc_clf = make_pipeline(StandardScaler(), SVC(gamma='auto'))
 svc_clf = svc_clf.fit(X, Y)
 prediction2 = svc_clf.predict(challenger)
 print (prediction2)
+
 
 
 # julio = tree_clf.predict([[180, 95, 44]])
