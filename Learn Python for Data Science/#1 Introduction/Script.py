@@ -2,6 +2,8 @@ from sklearn import tree
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import load_digits, make_classification
+from sklearn.linear_model import Perceptron
 import numpy as np
 
 #[height, weight, shoe size]
@@ -16,6 +18,8 @@ Y = ['male', 'female', 'female', 'female', 'male', 'male',
 
 #new set of measurements to be predicted
 challenger = [[190, 70, 43]]
+chica = [[160, 55, 35]]
+chico = [[180, 95, 44]]
 
 #using tree to classify 'challenger' based on best fit from our X,Y sets and make a prediction
 tree_clf = tree.DecisionTreeClassifier()
@@ -30,7 +34,12 @@ svc_clf = svc_clf.fit(X, Y)
 prediction2 = svc_clf.predict(challenger)
 print (prediction2)
 
-
+#Perceptron
+X, Y = make_classification(n_samples=11, n_features=3, n_informative=3, n_redundant=0, random_state=0)
+perceptron_clf = Perceptron()
+perceptron_clf.fit(X, Y)
+prediction3 = perceptron_clf.predict(challenger)
+print(prediction3)
 
 # julio = tree_clf.predict([[180, 95, 44]])
 # print ("\nJulio is a ")
